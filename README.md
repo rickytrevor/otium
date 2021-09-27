@@ -6,8 +6,14 @@ this software is released under the gnu gplv3 license and it's ment only for edu
 ## Howto: edit the source code
 The source code is ment to be edited in a docker container using visual studio code with the remote-containers plugin, with that you can just open the project, tap "open in container" and vscode should install everything that it's needed to test and debug the bot
 ## Howto: deploy it 
-You can deply it just by running python3 bot.py or via docker, first you have to build the image by going inside the source directory and running docker build -t bot . 
+You can deply it just by running python3 bot.py or via docker, first you have to build the image by going inside the source directory and running 
+
+docker build -t bot . 
+
+
 Then, you can run it with 
+
+
 docker run -t -d -v /your/songs/cache/directory:/songs bot 
 
 ## credits
