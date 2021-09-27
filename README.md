@@ -8,13 +8,13 @@ The source code is ment to be edited in a docker container using visual studio c
 ## Howto: deploy it 
 You can deply it just by running python3 bot.py or via docker, first you have to build the image by going inside the source directory and running 
 
-docker build -t bot . 
+### docker build -t bot . 
 
 
 Then, you can run it with 
 
 
-docker run -t -d -v /your/songs/cache/directory:/songs bot 
+### docker run -t -d -v /your/songs/cache/directory:/songs bot 
 
 ## credits
 Library: https://github.com/Rapptz/discord.py
