@@ -1,4 +1,4 @@
-# Rick-Discord-bot
+# Otium
 
 ## License
 this software is released under the gnu gplv3 license and it's ment only for educational use, i won't provide any free hosting, if you have any suggestions/fixes or simply you find some optimizations to my code feel free to start a pull request
