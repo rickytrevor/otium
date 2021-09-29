@@ -4,15 +4,15 @@
 this software is released under the gnu gplv3 license and it's ment only for educational use, i won't provide any free hosting, if you have any suggestions/fixes or simply you find some optimizations to my code feel free to start a pull request
 
 ## Howto: deploy it 
-# there are two ways to deploy this bot, via docker or via the bot.py file
-## Docker
+## there are two ways to deploy this bot, via docker or via the bot.py file
+### Docker
 To deploy the bot with docker you have to first build the docker image with 
 
 #### docker build -t bot . 
 Then, you can run it with 
-### docker run -t -d -v /your/songs/cache/directory:/songs bot 
+#### docker run -t -d -v /your/songs/cache/directory:/songs bot 
 
-## non-docker method 
+### non-docker method 
 To deploy it without docker you first need to install all the dependencies with pip install -U discord.py pynacl python-dotenv youtube-dl  youtube-search-python && sudo apt install ffmpeg youtube-dl 
 and then to actually run the program just run python3 bot.py 
 
