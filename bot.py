@@ -1,13 +1,17 @@
-
 import discord
 from discord.ext import commands
 import os
 import time
 import threading
 import asyncio
+from youtube_dl.utils import ytdl_is_updateable
 from youtubesearchpython import VideosSearch
 import json
 from ast import literal_eval
+import youtube_dl
+
+ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s.%(ext)s'})
+
 
 from youtubesearchpython.internal.constants import ResultMode
 def search(url):
@@ -18,10 +22,25 @@ def search(url):
     st = videosSearch.result()['result'][0]['link']
 
     return st
+class MyLogger(object):
+    def debug(self, msg):
+        pass
+
+    def warning(self, msg):
+        pass
+
+    def error(self, msg):
+        print(msg)
+
+
+def my_hook(d):
+    if d['status'] == 'finished':
+        print('Done downloading, now converting ...')
+
 def download(url, filename):
     if os.path.isfile(filename) == False: 
-        os.system('youtube-dl --extract-audio --audio-format mp3 -o  "'+ filename+'" ' + url)    
-
+        os.system('youtube-dl --extract-audio --audio-format mp3  --external-downloader aria2c -o  "'+ filename+'" ' + url)    
+        
 def getcachetitle(url):
     global ct
     videosSearch = VideosSearch(url, limit = 1)
@@ -82,7 +101,6 @@ async def play(ctx, *url : str):
 
     if os.path.exists(filename):
             q_push(filename)
-            #index = index + 1 
     else:
         await ctx.reply("can't download this song")
 
@@ -100,8 +118,10 @@ async def playaudio(ctx, filename):
 def dele(filename):
     os.system('rm ' + filename)
 
-
-
+@client.command()
+async def sendmess(ctx):
+    await ctx.reply("ciao")
+    
 @client.command()
 async def pause(ctx):
     global pause_thread
