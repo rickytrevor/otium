@@ -9,6 +9,15 @@ from youtubesearchpython import VideosSearch
 import json
 from ast import literal_eval
 import youtube_dl
+import sys
+# accept command line argument, string
+if len(sys.argv) > 1:
+    token = sys.argv[1]
+else:
+    print("Please provide token as argument")
+    exit()
+# else:
+#    url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s.%(ext)s'})
 
@@ -219,4 +228,4 @@ x = threading.Thread(target=asyncio.run, args=(mainloop(),))
 x.start()
 
 
-client.run('Put_your_token')
+client.run(token)
