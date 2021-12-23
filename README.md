@@ -10,11 +10,11 @@ To deploy the bot with docker you have to first build the docker image with
 
 #### docker build -t bot . 
 Then, you can run it with 
-#### docker run -t -d -v /your/songs/cache/directory:/songs bot 
+#### docker run -t -d -e token=your_token -v /your/songs/cache/directory:/songs bot 
 
 ### non-docker method 
 To deploy it without docker you first need to install all the dependencies with pip install -U discord.py pynacl python-dotenv youtube-dl  youtube-search-python && sudo apt install ffmpeg youtube-dl 
-and then to actually run the program just run python3 bot.py 
+and then to actually run the program just run python3 bot.py yourtokengoeshere
 
 
 ## credits
