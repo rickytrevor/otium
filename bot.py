@@ -51,8 +51,8 @@ def my_hook(d):
 def download(url, filename):
     if os.path.isfile(filename) == False:
         os.system(
-            'yt-dlp --extract-audio --audio-format mp3  --external-downloader aria2c -o  "' + filename+'" ' + url)
-
+            'yt-dlp --extract-audio --audio-format mp3  -o  "' + filename+'" ' + url)
+# --external-downloader aria2c
 
 def getcachetitle(url):
     global ct
